@@ -20,24 +20,24 @@ variable "hostname" {
   default = "seclab-win-dc"
 }
 
-variable "proxmox_node" {
+variable "pve" {
   type    = string
-  default = "proxmox"
+  default = "192.168.141.60"
 }
 
 source "proxmox-iso" "seclab-win-dc" {
-  proxmox_url  = "https://${var.proxmox_node}:8006/api2/json"
-  node         = "${var.proxmox_node}"
+  proxmox_url  = "https://${var.pve}:8006/api2/json"
+  node         = "pve"
   username     = "${local.proxmox_api_id}"
   token        = "${local.proxmox_api_token}"
-  iso_file     = "local:iso/Win-Server-2019.iso"
+  iso_file     = "local:iso/server_2019.iso"
   iso_checksum = "sha256:549bca46c055157291be6c22a3aaaed8330e78ef4382c99ee82c896426a1cee1"
 
 
   additional_iso_files {
     device       = "ide3"
     iso_file     = "local:iso/Autounattend-win-dc.iso"
-    iso_checksum = "sha256:c72f913cab51cc5c29e6fd5eec859b85ce227a113ae4887affef091cd6d629b2"
+    iso_checksum = "sha256:4edcbe3629211b8060b1fdebf2da4f3c7d6810c9f4502a964322e751b8046d36"
     unmount      = true
   }
 

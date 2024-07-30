@@ -13,13 +13,13 @@ terraform {
 
 variable "proxmox_host" {
   type        = string
-  default     = "proxmox"
+  default     = "pve"
   description = "Proxmox node name"
 }
 
 variable "hostname" {
   type        = string
-  default     = "seclab-ws"
+  default     = "seclab-win-ws"
   description = "hostname"
 }
 
@@ -46,7 +46,7 @@ provider "proxmox" {
 
 
 resource "proxmox_virtual_environment_vm" "seclab-ws" {
-  name      = "Seclab-Workstation"
+  name      = "seclab-ws"
   node_name = var.proxmox_host
   on_boot   = true
 
@@ -68,13 +68,13 @@ resource "proxmox_virtual_environment_vm" "seclab-ws" {
   }
 
   network_device {
-    bridge = "vmbr1"
-    model  = "e1000"
-  }
-  network_device {
     bridge = "vmbr2"
     model  = "e1000"
   }
+  # network_device {
+  #   bridge = "vmbr3"
+  #   model  = "e1000"
+  # }
 
   connection {
     type            = "ssh"

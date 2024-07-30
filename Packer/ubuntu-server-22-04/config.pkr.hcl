@@ -12,9 +12,9 @@ variable "hostname" {
   default = "seclab-ubuntu-server"
 }
 
-variable "proxmox_node" {
+variable "pve" {
   type    = string
-  default = "proxmox"
+  default = "192.168.141.60"
 }
 
 locals {
@@ -26,8 +26,8 @@ locals {
 
 
 source "proxmox-iso" "seclab-ubuntu-server" {
-  proxmox_url              = "https://${var.proxmox_node}:8006/api2/json"
-  node                     = "${var.proxmox_node}"
+  proxmox_url              = "https://${var.pve}:8006/api2/json"
+  node                     = "pve"
   username                 = "${local.proxmox_api_id}"
   token                    = "${local.proxmox_api_token}"
   iso_file                 = "local:iso/ubuntu-22.04.3-live-server-amd64.iso"

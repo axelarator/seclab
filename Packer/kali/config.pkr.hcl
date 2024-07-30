@@ -12,9 +12,9 @@ variable "hostname" {
   default = "seclab-kali"
 }
 
-variable "proxmox_node" {
+variable "pve" {
   type    = string
-  default = "proxmox"
+  default = "192.168.141.60"
 }
 
 locals {
@@ -26,12 +26,12 @@ locals {
 
 
 source "proxmox-iso" "seclab-kali" {
-  proxmox_url              = "https://${var.proxmox_node}:8006/api2/json"
-  node                     = "${var.proxmox_node}"
+  proxmox_url              = "https://${var.pve}:8006/api2/json"
+  node                     = "pve"
   username                 = "${local.proxmox_api_id}"
   token                    = "${local.proxmox_api_token}"
   iso_file                 = "local:iso/kali.iso"
-  iso_checksum             = "sha256:0b0f5560c21bcc1ee2b1fef2d8e21dca99cc6efa938a47108bbba63bec499779"
+  iso_checksum             = "sha256:c150608cad5f8ec71608d0713d487a563d9b916a0199b1414b6ba09fce788ced"
   ssh_username             = "${local.username}"
   ssh_password             = "${local.password}"
   ssh_handshake_attempts   = 100

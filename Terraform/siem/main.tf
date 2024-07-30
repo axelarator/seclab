@@ -13,7 +13,7 @@ terraform {
 
 variable "proxmox_host" {
   type        = string
-  default     = "proxmox"
+  default     = "pve"
   description = "Proxmox node name"
 }
 
@@ -64,7 +64,7 @@ resource "proxmox_virtual_environment_vm" "seclab-siem" {
   }
 
   memory {
-    dedicated = 8192
+    dedicated = 16384
   }
 
   network_device {

@@ -13,7 +13,7 @@ terraform {
 
 variable "proxmox_host" {
   type        = string
-  default     = "proxmox"
+  default     = "pve"
   description = "Proxmox node name"
 }
 
@@ -46,7 +46,7 @@ provider "proxmox" {
 
 
 resource "proxmox_virtual_environment_vm" "seclab-docker" {
-  name      = "Seclab-Docker"
+  name      = "seclab-docker"
   node_name = var.proxmox_host
   on_boot   = true
 

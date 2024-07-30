@@ -19,14 +19,14 @@ locals {
   proxmox_api_token = vault("/seclab/data/seclab/", "proxmox_api_token")
 }
 
-variable "proxmox_node" {
+variable "pve" {
   type    = string
-  default = "proxmox"
+  default = "192.168.141.60"
 }
 
 source "proxmox-iso" "seclab-win-ws" {
-  proxmox_url  = "https://${var.proxmox_node}:8006/api2/json"
-  node         = "${var.proxmox_node}"
+  proxmox_url  = "https://${var.pve}:8006/api2/json"
+  node         = "pve"
   username     = "${local.proxmox_api_id}"
   token        = "${local.proxmox_api_token}"
   iso_file     = "local:iso/Win-10-Enterprise.iso"
@@ -46,7 +46,7 @@ source "proxmox-iso" "seclab-win-ws" {
   additional_iso_files {
     device       = "ide3"
     iso_file     = "local:iso/Autounattend-win-10-ws.iso"
-    iso_checksum = "sha256:2893ca8f6d1f420436b6c213fa618710e7689a67d4bf924263361f07cced3b34"
+    iso_checksum = "sha256:0d910d36b541259b79d962ecaa4825974bc1886ad2dd649e27d842beda93cdaf"
   }
   additional_iso_files {
     device       = "sata0"

@@ -1,9 +1,9 @@
 ---
-dhcp_subnet: 10.1.99.0
+dhcp_subnet: 192.168.98.0
 dhcp_netmask: 255.255.255.0
-dhcp_pool_start: 10.1.99.100
-dhcp_pool_end: 10.1.99.254
+dhcp_pool_start: 192.168.98.100
+dhcp_pool_end: 192.168.98.254
 dhcp_interface: ens19
-dhcp_routers: 10.1.99.1
+dhcp_routers: 192.168.98.1
 dhcp_domain_name: zeroday.local
-dhcp_nameservers: [10.1.99.3, 8.8.8.8]
+dhcp_nameservers: [192.168.98.3, 8.8.8.8]
