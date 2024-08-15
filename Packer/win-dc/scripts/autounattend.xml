@@ -117,7 +117,7 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <TimeZone>Pacific Standard Time</TimeZone>
+            <TimeZone>Mountain Standard Time</TimeZone>
             <!-- <ComputerName>seclab-winserver</ComputerName> -->
             <RegisteredOwner/>
         </component>

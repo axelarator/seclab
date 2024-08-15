@@ -29,8 +29,8 @@ source "proxmox-iso" "seclab-win-ws" {
   node         = "pve"
   username     = "${local.proxmox_api_id}"
   token        = "${local.proxmox_api_token}"
-  iso_file     = "local:iso/Win-10-Enterprise.iso"
-  iso_checksum = "sha256:ef7312733a9f5d7d51cfa04ac497671995674ca5e1058d5164d6028f0938d668"
+  iso_file     = "local:iso/Win10_Full.iso"
+  iso_checksum = "sha256:a6f470ca6d331eb353b815c043e327a347f594f37ff525f17764738fe812852e"
   /*skip_export             = true*/
   communicator             = "ssh"
   ssh_username             = "${local.username}"
@@ -46,7 +46,7 @@ source "proxmox-iso" "seclab-win-ws" {
   additional_iso_files {
     device       = "ide3"
     iso_file     = "local:iso/Autounattend-win-10-ws.iso"
-    iso_checksum = "sha256:0d910d36b541259b79d962ecaa4825974bc1886ad2dd649e27d842beda93cdaf"
+    iso_checksum = "sha256:965a3b3247354a586737dd7ef3bf4fbccefbaef5bcfc15769c9fe995605267cb"
   }
   additional_iso_files {
     device       = "sata0"
